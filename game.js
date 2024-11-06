@@ -9,6 +9,12 @@ var start = false
 // functions
 //-------------------
 //animation of button when pressed "linked" on css
+function nextSequence() {
+    var randomNumber = Math.floor(Math.random() * 4)
+    var randomColor = colors[randomNumber]
+    gamePattern.push(randomColor)
+    console.log(gamePattern)
+}
 
 //make sound when pressed
 
