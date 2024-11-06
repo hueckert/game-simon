@@ -16,12 +16,15 @@ function nextSequence() {
     // testing to make sure it worked
     //console.log(gamePattern)
 }
+
+
 // create the animation of the button pressed
 
 $('.btn').on("click", function(event) {
     var userClickedButtonColor = event.target.id
 
     animatePress(userClickedButtonColor)
+    playSound(userClickedButtonColor)
 
     userClickedPattern.push(userClickedButtonColor)
     //testing
@@ -37,6 +40,12 @@ function animatePress(color) {
   }
 
 //make sound when pressed
+
+function playSound(color) {
+    const audio = new Audio("sounds/" + color + ".mp3")
+    audio.play()
+    console.log("clicked")
+  }
 
 // create pattern
 
