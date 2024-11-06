@@ -10,12 +10,48 @@ var start = false
 //-------------------
 //animation of button when pressed "linked" on css
 function nextSequence() {
-    var randomNumber = Math.floor(Math.random() * 4)
-    var randomColor = colors[randomNumber]
-    gamePattern.push(randomColor)
-    // testing to make sure it worked
-    //console.log(gamePattern)
+  var randomNumber = Math.floor(Math.random() * 4);
+  var randomColor = colors[randomNumber];
+  gamePattern.push(randomColor);
+  // testing to make sure it worked
+  //console.log(gamePattern)
 }
+  
+
+function animatePress(color) {
+    $("#" + color).addClass("pressed")
+  
+    setTimeout(function() {
+      $("#" + color).removeClass("pressed")
+    }, 100)
+  }
+
+
+
+  function playSound(color) {
+    const audio = new Audio("sounds/" + color + ".mp3")
+    audio.play()
+    console.log("clicked")
+  }
+
+  function showGamePattern() {
+
+    let start = 0
+    let pattern = setInterval(thisFunction, 1000)
+  
+    function thisFunction() {
+      if (start < gamePattern.length) {
+        var currentcolor = gamePattern[start]
+        animatePress(currentcolor)
+        playSound(currentcolor)
+        start++
+      }
+      else {
+        clearInterval(pattern)
+      }
+    }
+  }
+
 $(document).on("keypress", function(event) {
     if (!start) {
         start = true
@@ -37,38 +73,14 @@ $('.btn').on("click", function(event) {
     //console.log(userClickedPattern)
 })
 
-function animatePress(color) {
-    $("#" + color).addClass("pressed")
-  
-    setTimeout(function() {
-      $("#" + color).removeClass("pressed")
-    }, 100)
-  }
+
 
 //make sound when pressed
 
-function playSound(color) {
-    const audio = new Audio("sounds/" + color + ".mp3")
-    audio.play()
-    console.log("clicked")
-  }
+
 
 // create pattern
 
-function showGamePattern() {
-
-    let start = 0
-    let pattern =setInterval(thisFunction, 1200)
-
-    if (start < gamePattern() {
-        var currentColor = gamePattern[start]
-        animatePress(currentColor)
-        start++
-    }
-    else {
-        clearInterval(pattern)
-    }
-}
 //event handlers
 //---------------------
 
