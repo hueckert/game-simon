@@ -13,7 +13,8 @@ function nextSequence() {
     var randomNumber = Math.floor(Math.random() * 4)
     var randomColor = colors[randomNumber]
     gamePattern.push(randomColor)
-    console.log(gamePattern)
+    // testing to make sure it worked
+    //console.log(gamePattern)
 }
 
 //make sound when pressed
@@ -27,7 +28,17 @@ function nextSequence() {
 
 //mouse click for userclinckedPattern
 
+$('.btn').on("click", function(event) {
+    var userClickedButtonColor = event.target.id
+
+    userClickedPattern.push(userClickedButtonColor)
+    //testing
+    //console.log(userClickedPattern)
+})
+
 // animation and sound when button is clicked
+
+
 
 // to check if the userClickedPattern is equal to gamePattern
 
