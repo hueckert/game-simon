@@ -16,6 +16,25 @@ function nextSequence() {
     // testing to make sure it worked
     //console.log(gamePattern)
 }
+// create the animation of the button pressed
+
+$('.btn').on("click", function(event) {
+    var userClickedButtonColor = event.target.id
+
+    animatePress(userClickedButtonColor)
+
+    userClickedPattern.push(userClickedButtonColor)
+    //testing
+    console.log(userClickedPattern)
+})
+
+function animatePress(color) {
+    $("#" + color).addClass("pressed")
+  
+    setTimeout(function() {
+      $("#" + color).removeClass("pressed")
+    }, 100)
+  }
 
 //make sound when pressed
 
@@ -28,13 +47,6 @@ function nextSequence() {
 
 //mouse click for userclinckedPattern
 
-$('.btn').on("click", function(event) {
-    var userClickedButtonColor = event.target.id
-
-    userClickedPattern.push(userClickedButtonColor)
-    //testing
-    //console.log(userClickedPattern)
-})
 
 // animation and sound when button is clicked
 
