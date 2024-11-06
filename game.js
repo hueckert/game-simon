@@ -17,8 +17,11 @@ function nextSequence() {
     //console.log(gamePattern)
 }
 $(document).on("keypress", function(event) {
-    nextSequence()
-    console.log(gamePattern)
+    if (!start) {
+        start = true
+        nextSequence()
+        console.log(gamePattern)
+    }
 })
 
 // create the animation of the button pressed
