@@ -55,6 +55,20 @@ function playSound(color) {
 
 // create pattern
 
+function showGamePattern() {
+
+    let start = 0
+    let pattern =setInterval(thisFunction, 1200)
+
+    if (start < gamePattern() {
+        var currentColor = gamePattern[start]
+        animatePress(currentColor)
+        start++
+    }
+    else {
+        clearInterval(pattern)
+    }
+}
 //event handlers
 //---------------------
 
