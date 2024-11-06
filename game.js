@@ -1,5 +1,10 @@
 // variables
 //----------------------
+const colors = ['blue', 'red', 'yellow', 'green']
+var gamePattern = []
+var userClickedPattern = []
+var level = 0
+var start = false
 
 // functions
 //-------------------
@@ -21,6 +26,10 @@
 // to check if the userClickedPattern is equal to gamePattern
 
 // if true, run code to go to next level
+
+// if reach level 10 YOU WIN!!
+
+// youWin and reset game
 
 // if there is a difference between userClickedPattern and gamePattern
 
