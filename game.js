@@ -16,7 +16,10 @@ function nextSequence() {
     // testing to make sure it worked
     //console.log(gamePattern)
 }
-
+$(document).on("keypress", function(event) {
+    nextSequence()
+    console.log(gamePattern)
+})
 
 // create the animation of the button pressed
 
@@ -28,7 +31,7 @@ $('.btn').on("click", function(event) {
 
     userClickedPattern.push(userClickedButtonColor)
     //testing
-    console.log(userClickedPattern)
+    //console.log(userClickedPattern)
 })
 
 function animatePress(color) {
