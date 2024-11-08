@@ -67,6 +67,16 @@ function showGamePattern() {
   }, 1000)
 }
 
+// Reset the game when the player wins
+function youWin() {
+  document.body.classList.add("win")
+  render(`YOU WIN!! Level ${level}`)
+
+  setTimeout(() => {
+    init()  // Reset the game after showing the win message
+  }, 5000)
+}
+
 // -----------------------------------------------
 // EVENT HANDLERS
 // -----------------------------------------------
