@@ -9,11 +9,17 @@ h3 {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif    
 }
 
-.header {
+.title {
     margin: 50px 0;
-    color: yellow;
+    color: #ecec15;
     font-family: 'Press Start 2P', cursive;
-}
+  }
+  
+  .header {
+    margin: 50px 0;
+    color: #d1d1c7;
+    font-family: 'Press Start 2P', cursive;
+  }
 
 .container {
     display: flex;
@@ -54,5 +60,9 @@ h3 {
 }
 
 .lose {
-    background-color: maroon;
-}
+    background: linear-gradient(to bottom, maroon, #8b0000, #d85252);
+  }
+
+  .win {
+    background: linear-gradient(to right, rgb(161, 73, 185), rgb(230, 98, 155), rgb(255, 185, 129));
+  }
