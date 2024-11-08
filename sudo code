@@ -1,0 +1,105 @@
+Define colors for the game buttons
+SET colors TO array ['blue', 'red', 'yellow', 'green']
+INITIALIZE gamePattern as an empty array
+INITIALIZE userClickedPattern as an empty array
+INITIALIZE level as 0
+INITIALIZE start as false
+
+FUNCTION init - Initializes or resets the game state
+FUNCTION init:
+    RESET gamePattern to an empty array
+    RESET userClickedPattern to an empty array
+    SET level to 0
+    SET start to false
+    REMOVE 'win' and 'lose' classes from the body
+    CALL render with "Press any key to start" message
+
+FUNCTION render - Updates the game header with a message
+FUNCTION render(message):
+    SET header text to message OR "Level" + current level
+
+FUNCTION nextSequence - Generates the next color in the sequence
+FUNCTION nextSequence:
+    SET randomNumber to a random integer between 0 and length of colors
+    SET randomColor to colors[randomNumber]
+    APPEND randomColor to gamePattern
+    CALL render with current level
+
+FUNCTION animatePress - Animates button when pressed
+FUNCTION animatePress(color):
+    ADD 'pressed' class to button with id of color
+    AFTER 100ms, REMOVE 'pressed' class from the button
+
+FUNCTION playSound - Plays sound for the given color
+FUNCTION playSound(color):
+    CREATE audio object with sound file for the color
+    PLAY the audio
+
+FUNCTION showGamePattern - Shows the game pattern to the user with delays
+FUNCTION showGamePattern:
+    INITIALIZE index to 0
+    SET pattern interval to run every 1000ms:
+        IF index is less than length of gamePattern:
+            GET currentColor from gamePattern[index]
+            CALL animatePress and playSound with currentColor
+            INCREMENT index by 1
+        ELSE:
+            STOP the interval
+
+FUNCTION subList - Checks if user's pattern matches the game pattern so far
+FUNCTION subList:
+    RETURN true if each color in userClickedPattern matches corresponding color in gamePattern
+
+FUNCTION youWin - Handles win state, resets the game
+FUNCTION youWin:
+    ADD 'win' class to body
+    CALL render with "YOU WIN!!" message
+    AFTER 5000ms, CALL init to reset the game
+
+FUNCTION gameOver - Handles game over state, resets the game
+FUNCTION gameOver:
+    ADD 'lose' class to body
+    CALL render with "Game Over!!" message
+    AFTER 3000ms, CALL init to reset the game
+
+EVENT HANDLER for keyboard press to start the game
+ON keyboard press:
+    IF start is false:
+        SET start to true
+        SET level to 1
+        RESET gamePattern and userClickedPattern
+        CALL nextSequence
+        CALL showGamePattern
+        CALL render with current level
+
+EVENT HANDLER for button clicks
+FOR EACH button with class 'btn':
+    ON button click:
+        IF start is true:
+            SET userClickedButtonColor to button id
+            CALL animatePress and playSound with userClickedButtonColor
+            ADD userClickedButtonColor to userClickedPattern
+
+            IF userClickedPattern matches gamePattern:
+                INCREMENT level
+                RESET userClickedPattern
+                CALL nextSequence
+                CALL showGamePattern
+                CALL render with current level
+            ELSE IF level is 5:
+                CALL youWin to end the game with a win
+            ELSE IF subList returns false:
+                CALL gameOver to end the game with a game over
+
+CALL init to set initial game state on page load
+
+
+CALL init
+-----------------------------
+Initialization and Reset: init sets up or resets the game.
+
+Game Flow: nextSequence generates a new pattern, and showGamePattern displays it.
+
+User Input and Feedback: User interactions with buttons trigger animations, sounds, and check whether their input matches the game’s sequence.
+
+Win and Game Over: youWin and gameOver handle the game’s win and lose states.

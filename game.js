@@ -67,6 +67,11 @@ function showGamePattern() {
   }, 1000)
 }
 
+// Check if user clicked pattern matches the game pattern
+function subList() {
+  return userClickedPattern.every((color, index) => color === gamePattern[index]);
+}
+
 // Reset the game when the player wins
 function youWin() {
   document.body.classList.add("win")
@@ -115,6 +120,20 @@ document.querySelectorAll('.btn').forEach(button => {
       playSound(userClickedButtonColor)
 
       userClickedPattern.push(userClickedButtonColor)
+
+         // Check if the user clicked pattern is equal to the game pattern
+         if (subList() && userClickedPattern.length === gamePattern.length) {
+          level++;
+          userClickedPattern = [];
+          nextSequence();
+          showGamePattern();
+          render(`Level ${level}`);
+        } else if (level === 5) {
+          youWin();
+        } else if (!subList()) {
+          gameOver();
+        }
+
     }
   })
 })
