@@ -52,6 +52,21 @@ function playSound(color) {
   audio.play()
 }
 
+// game pattern
+function showGamePattern() {
+  let index = 0;
+  const pattern = setInterval(() => {
+    if (index < gamePattern.length) {
+      const currentColor = gamePattern[index]
+      animatePress(currentColor)
+      playSound(currentColor)
+      index++
+    } else {
+      clearInterval(pattern)
+    }
+  }, 1000)
+}
+
 // -----------------------------------------------
 // EVENT HANDLERS
 // -----------------------------------------------
