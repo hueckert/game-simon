@@ -56,6 +56,7 @@ function playSound(color) {
 // EVENT HANDLERS
 // -----------------------------------------------
 
+// start of game by pressing any key
 document.addEventListener("keypress", (event) => {
   if (!start) {
     start = true
@@ -64,9 +65,24 @@ document.addEventListener("keypress", (event) => {
     showGamePattern()
     render(`Level ${level}`)
   }
-});
+})
 
+// event listener for pressing any button
+document.querySelectorAll('.btn').forEach(button => {
+  button.addEventListener("click", (event) => {
+    if (start) {
+      const userClickedButtonColor = event.target.id;
 
+      // Animation and sound when a button is pressed
+      animatePress(userClickedButtonColor)
+      playSound(userClickedButtonColor)
+
+      userClickedPattern.push(userClickedButtonColor)
+    }
+  })
+})
+
+//working so far
 
 
 
