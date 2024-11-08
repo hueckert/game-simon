@@ -77,6 +77,18 @@ function youWin() {
   }, 5000)
 }
 
+// Handle game over
+function gameOver() {
+  document.body.classList.add("lose");
+  render(`Game Over!! Level ${level}`);
+
+  setTimeout(() => {
+    init();  // Reset the game after showing the game-over message
+  }, 5000);
+}
+
+
+
 // -----------------------------------------------
 // EVENT HANDLERS
 // -----------------------------------------------
