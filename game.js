@@ -46,6 +46,27 @@ function animatePress(color) {
   }, 150)
 }
 
+//play sound
+function playSound(color) {
+  const audio = new Audio(`sounds/${color}.mp3`)
+  audio.play()
+}
+
+// -----------------------------------------------
+// EVENT HANDLERS
+// -----------------------------------------------
+
+document.addEventListener("keypress", (event) => {
+  if (!start) {
+    start = true
+    level = 1;  // Start at level 1
+    nextSequence()
+    showGamePattern()
+    render(`Level ${level}`)
+  }
+});
+
+
 
 
 
