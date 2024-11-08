@@ -10,6 +10,16 @@ let start = false;
 // -----------------------------------------------
 // FUNCTIONS
 // -----------------------------------------------
+function init() {
+  gamePattern = [];
+  userClickedPattern = [];
+  level = 0;
+  start = false;
+
+ 
+  
+    render("Press any key to start")
+}
 
 // Render function to update the game header
 function render(message) {
@@ -23,12 +33,12 @@ function nextSequence() {
   const randomColor = colors[randomNumber];
   gamePattern.push(randomColor);
   render(`Level ${level}`);  // Update header with current level
-  // console.log(nextSequence)
+  console.log(nextSequence)
 }
 
 
 
 
 
-// // Initial render to set header text
-// render("Press any key to start");
+// Initial render to set header text
+init()
