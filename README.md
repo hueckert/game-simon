@@ -8,7 +8,7 @@ The game was made in 1978 by Ralph Baer for the Milton Bradley Company. His insp
 
 https://americanhistory.si.edu/collections/object/nmah_1302005
 
-I never owned one of these games but my parents bought one for themselves when I was about 6. Even though it was not mine I played it for hours. I can not remember how high of a level I ended up on, but I remember the simplicity but fascination for the game. Hench my reason for build a web based one.
+I never owned one of these games but my parents bought one for themselves when I was about 6. Even though it was not mine I played it for hours. I can not remember how high of a level I ended up on, but I remember the simplicity but fascination for the game. Hench my reason to build a web based one.
 
 ## Instructions
 
@@ -28,6 +28,8 @@ Make the buttons circular like the original game.
 
 Give the user a chance to select level of difficulty. 
 
+I really wanted to change the sounds to sound more like the original.
+
 ## Technologies used
 HTML
 CSS
@@ -43,11 +45,11 @@ Github
 
 
 
-github repo
+Github repo
 
 https://github.com/hueckert/game-simon.git
 
-deploy link:
+Deploy link:
 
 https://hueckert.github.io/game-simon/
 
