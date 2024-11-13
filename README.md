@@ -16,7 +16,7 @@ Press start to begin.
 
 Repeat the random sequences of lights and sounds by pressing (clicking) the button on screen. The computers sequence starts with one and increases by one each successful turn. 
 
-Get to level 10 and You Win!
+Get to level 5 and You Win!
 
 If you don't get the sequence correct You Lose, and the same starts over. 
 
@@ -47,7 +47,7 @@ github repo
 
 https://github.com/hueckert/game-simon.git
 
-deplay link:
+deploy link:
 
 https://hueckert.github.io/game-simon/
 
